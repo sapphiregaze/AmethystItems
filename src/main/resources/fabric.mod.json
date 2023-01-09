@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "amethystitems",
+  "version": "${version}",
+  "name": "AmethystItems",
+  "description": "a fabric minecraft mod that adds amethyst items into the game",
+  "authors": [
+    "sapphiregaze"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/amethystitems/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "sapphiregaze.amethystitems.client.AmethystitemsClient"
+    ],
+    "main": [
+      "sapphiregaze.amethystitems.Amethystitems"
+    ]
+  },
+  "mixins": [
+    "amethystitems.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
