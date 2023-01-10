@@ -1,3 +1,7 @@
 {
-  "item.amethyst_items.amethyst_sword": "Amethyst Sword"
+  "item.amethyst_items.amethyst_sword": "Amethyst Sword",
+  "item.amethyst_items.amethyst_pickaxe": "Amethyst Pickaxe",
+  "item.amethyst_items.amethyst_axe": "Amethyst Axe",
+  "item.amethyst_items.amethyst_shovel": "Amethyst Shovel"
+  //"item.amethyst_items.amethyst_hoe": "Amethyst Hoe"
 }
