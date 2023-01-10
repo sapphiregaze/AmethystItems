@@ -9,12 +9,12 @@
     }
   },
   "pattern": [
-    "X",
-    "#",
-    "#"
+    "XXX",
+    " # ",
+    " # "
   ],
   "result": {
-    "item": "minecraft:amethyst_shovel",
+    "item": "amethyst_items:amethyst_pickaxe",
     "count": 1
   }
 }

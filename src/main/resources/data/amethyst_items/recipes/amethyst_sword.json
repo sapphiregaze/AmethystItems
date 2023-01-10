@@ -1,17 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
     "X": {
       "item": "minecraft:amethyst_shard"
     }
   },
   "pattern": [
-    "X X",
-    "XXX",
-    "XXX"
+    "X",
+    "X",
+    "#"
   ],
   "result": {
-    "item": "minecraft:amethyst_chestplate",
+    "item": "amethyst_items:amethyst_sword",
     "count": 1
   }
 }

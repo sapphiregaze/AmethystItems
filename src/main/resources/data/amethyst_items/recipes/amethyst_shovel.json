@@ -1,16 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
     "X": {
       "item": "minecraft:amethyst_shard"
     }
   },
   "pattern": [
-    "XXX",
-    "X X"
+    "X",
+    "#",
+    "#"
   ],
   "result": {
-    "item": "minecraft:amethyst_helmet",
+    "item": "amethyst_items:amethyst_shovel",
     "count": 1
   }
 }
