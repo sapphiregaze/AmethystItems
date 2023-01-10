@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Amethystitems implements ModInitializer {
-    public static final String MOD_ID = "AmethystItemsMod";
+    public static final String MOD_ID = "AmethystItems";
 
     public static final AmethystMaterial AMETHYST = new AmethystMaterial();
     public static final AmethystArmorMaterial AMETHYST_ARMOR = new AmethystArmorMaterial();
@@ -18,7 +18,7 @@ public class Amethystitems implements ModInitializer {
     public static final Item AMETHYST_SHOVEL = new ShovelItem(AMETHYST, 1.5f, -3.0f, new Item.Settings().group(ItemGroup.TOOLS));
     public static final Item AMETHYST_HOE = new AmethystHoe(AMETHYST, 0, 0.0F, (new Item.Settings().group(ItemGroup.TOOLS)));
 
-    Item AMETHYST_HELMET = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.HEAD, (new Item.Settings().group(ItemGroup.COMBAT)));
+    public static final Item AMETHYST_HELMET = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.HEAD, (new Item.Settings().group(ItemGroup.COMBAT)));
     public static final Item AMETHYST_CHESTPLATE = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.CHEST, (new Item.Settings().group(ItemGroup.COMBAT)));
     public static final Item AMETHYST_LEGGINGS = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.LEGS, (new Item.Settings().group(ItemGroup.COMBAT)));
     public static final Item AMETHYST_BOOTS = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.FEET, (new Item.Settings().group(ItemGroup.COMBAT)));
