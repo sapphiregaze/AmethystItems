@@ -8,5 +8,6 @@
   "item.amethyst_items.amethyst_chestplate": "Amethyst Chestplate",
   "item.amethyst_items.amethyst_leggings": "Amethyst Leggings",
   "item.amethyst_items.amethyst_boots": "Amethyst Boots",
-  "item.amethyst_items.amethyst_horse_armor": "Amethyst Horse Armor"
+  "item.amethyst_items.amethyst_horse_armor": "Amethyst Horse Armor",
+  "enchantment.amethyst_items.transpose": "Transpose"
 }

@@ -1,4 +1,4 @@
-package sapphiregaze.amethystitems;
+package sapphiregaze.amethystitems.materials;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;

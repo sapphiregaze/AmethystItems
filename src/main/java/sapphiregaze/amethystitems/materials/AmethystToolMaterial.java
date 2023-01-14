@@ -1,10 +1,10 @@
-package sapphiregaze.amethystitems;
+package sapphiregaze.amethystitems.materials;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public final class AmethystMaterial implements ToolMaterial {
+public final class AmethystToolMaterial implements ToolMaterial {
     @Override
     public int getDurability() {
         return 2591;

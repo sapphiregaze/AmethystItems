@@ -1,4 +1,4 @@
-package sapphiregaze.amethystitems;
+package sapphiregaze.amethystitems.items;
 
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
