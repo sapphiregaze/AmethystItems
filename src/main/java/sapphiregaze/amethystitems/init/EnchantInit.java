@@ -8,7 +8,7 @@ import sapphiregaze.amethystitems.enchantment.TransposeEnchantment;
 public class EnchantInit {
     public static Enchantment TRANSPOSE;
 
-    public static void Init()
+    public static void init()
     {
         TRANSPOSE = new TransposeEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON,
                 new EquipmentSlot[]{EquipmentSlot.MAINHAND});
