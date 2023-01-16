@@ -17,7 +17,7 @@ public class Amethystitems implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ItemsInit.Init();
-        EnchantInit.Init();
+        ItemsInit.init();
+        EnchantInit.init();
     }
 }
