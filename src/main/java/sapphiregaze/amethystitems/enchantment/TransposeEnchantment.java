@@ -40,19 +40,19 @@ public class TransposeEnchantment extends Enchantment {
         switch (level) {
             case 1 -> {
                 if (Utility.percentChance(25)) {
-                    user.setHealth(user.getHealth() + 0.1F);
+                    user.heal(user.getHealth() + 0.1F);
                     target.damage(user.getRecentDamageSource(), 0.1F);
                 }
             }
             case 2 -> {
                 if (Utility.percentChance(50)) {
-                    user.setHealth(user.getHealth() + 0.2F);
+                    user.heal(user.getHealth() + 0.2F);
                     target.damage(user.getRecentDamageSource(), 0.2F);
                 }
             }
             case 3 -> {
                 if (Utility.percentChance(75)) {
-                    user.setHealth(user.getHealth() + 0.3F);
+                    user.heal(user.getHealth() + 0.3F);
                     target.damage(user.getRecentDamageSource(), 0.3F);
                 }
             }
