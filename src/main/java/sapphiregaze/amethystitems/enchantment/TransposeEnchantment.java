@@ -12,6 +12,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.registry.Registry;
 import sapphiregaze.amethystitems.Amethystitems;
 import sapphiregaze.amethystitems.init.ItemsInit;
+import sapphiregaze.amethystitems.mixin.LivingEntityAccessor;
 import sapphiregaze.amethystitems.util.Utility;
 
 public class TransposeEnchantment extends Enchantment {
@@ -50,8 +51,38 @@ public class TransposeEnchantment extends Enchantment {
     }
 
     public static float contributeDamage(int level) {
-        damageFlag = true;
-        return Utility.percentChance(25 * level) ? 0.1F * level : 0F;
+        if (Utility.percentChance(25 * level)) {
+            damageFlag = true;
+            return 0.1F * level;
+        }
+        return 0F;
+    }
+
+
+    public void targetDamageAlt(LivingEntity user, Entity target, int level) {
+        if (target instanceof LivingEntity le) {
+
+            // By setting your base value, you can directly affect the amount by multiplying
+            // it by your level rather than having to make sure that you've done the maths
+            // correctly, manually, each time
+            int transposeChanceBase = 20;
+            // Similar to the previous variable, by setting your base value, you can directly
+            // affect the amount by multiplying it by your level rather than having to make
+            // sure that you've done the maths correctly, manually, each time
+            float transposeHeathBase = 0.1F;
+
+            if (Utility.percentChance(transposeChanceBase * level)) {
+                // Manipulate lastDamageTaken and timeUntilRegen to avoid I-frames
+                float lastDam = ((LivingEntityAccessor) le).getLastDamageTaken();
+                target.timeUntilRegen = 0;
+                if (target.damage(le.getRecentDamageSource(), transposeHeathBase * level))
+                    user.heal(transposeHeathBase * level);
+                target.timeUntilRegen = 20;
+                ((LivingEntityAccessor) le).setLastDamageTaken(lastDam);
+                target.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, 1.0F, 1.0F);
+                super.onTargetDamaged(user, target, level);
+            }
+        }
     }
 
 }

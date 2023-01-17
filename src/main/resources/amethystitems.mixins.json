@@ -4,6 +4,7 @@
   "package": "sapphiregaze.amethystitems.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LivingEntityAccessor",
     "PlayerEntityMixin"
   ],
   "client": [
