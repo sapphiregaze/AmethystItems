@@ -15,6 +15,10 @@ import sapphiregaze.amethystitems.init.ItemsInit;
 import sapphiregaze.amethystitems.util.Utility;
 
 public class TransposeEnchantment extends Enchantment {
+
+    public static boolean damageFlag = false;
+    public static float currentCooldown = 0f;
+
     public TransposeEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT, Amethystitems.ID("transpose"), this);
@@ -37,27 +41,17 @@ public class TransposeEnchantment extends Enchantment {
 
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        switch (level) {
-            case 1 -> {
-                if (Utility.percentChance(25)) {
-                    user.setHealth(user.getHealth() + 0.1F);
-                    target.damage(user.getRecentDamageSource(), 0.1F);
-                }
-            }
-            case 2 -> {
-                if (Utility.percentChance(50)) {
-                    user.setHealth(user.getHealth() + 0.2F);
-                    target.damage(user.getRecentDamageSource(), 0.2F);
-                }
-            }
-            case 3 -> {
-                if (Utility.percentChance(75)) {
-                    user.setHealth(user.getHealth() + 0.3F);
-                    target.damage(user.getRecentDamageSource(), 0.3F);
-                }
-            }
+        if (damageFlag) {
+            user.heal(0.1F * level * currentCooldown); // Heal amount of damage contributed by enchantment exactly
+            target.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, 1.0F, 1.0F);
+            damageFlag = false;
         }
-        target.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, 1.0F, 1.0F);
         super.onTargetDamaged(user, target, level);
     }
+
+    public static float contributeDamage(int level) {
+        damageFlag = true;
+        return Utility.percentChance(25 * level) ? 0.1F * level : 0F;
+    }
+
 }
