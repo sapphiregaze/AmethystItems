@@ -11,7 +11,6 @@ import sapphiregaze.amethystitems.Amethystitems;
 import sapphiregaze.amethystitems.init.ItemsInit;
 
 public class TransposeEnchantment extends Enchantment {
-
     public TransposeEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT, Amethystitems.ID("transpose"), this);
@@ -31,5 +30,4 @@ public class TransposeEnchantment extends Enchantment {
     protected boolean canAccept(Enchantment other) {
         return !(other instanceof MendingEnchantment);
     }
-
 }
