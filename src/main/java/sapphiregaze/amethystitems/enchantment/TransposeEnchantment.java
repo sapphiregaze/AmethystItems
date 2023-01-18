@@ -84,5 +84,4 @@ public class TransposeEnchantment extends Enchantment {
             }
         }
     }
-
 }
