@@ -12,9 +12,14 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.registry.Registry;
 import sapphiregaze.amethystitems.Amethystitems;
 import sapphiregaze.amethystitems.init.ItemsInit;
+import sapphiregaze.amethystitems.mixin.LivingEntityAccessor;
 import sapphiregaze.amethystitems.util.Utility;
 
 public class TransposeEnchantment extends Enchantment {
+
+    public static boolean damageFlag = false;
+    public static float currentCooldown = 0f;
+
     public TransposeEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
         Registry.register(Registry.ENCHANTMENT, Amethystitems.ID("transpose"), this);
@@ -37,27 +42,46 @@ public class TransposeEnchantment extends Enchantment {
 
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        switch (level) {
-            case 1 -> {
-                if (Utility.percentChance(25)) {
-                    user.heal(user.getHealth() + 0.1F);
-                    target.damage(user.getRecentDamageSource(), 0.1F);
-                }
-            }
-            case 2 -> {
-                if (Utility.percentChance(50)) {
-                    user.heal(user.getHealth() + 0.2F);
-                    target.damage(user.getRecentDamageSource(), 0.2F);
-                }
-            }
-            case 3 -> {
-                if (Utility.percentChance(75)) {
-                    user.heal(user.getHealth() + 0.3F);
-                    target.damage(user.getRecentDamageSource(), 0.3F);
-                }
+        if (damageFlag) {
+            user.heal(0.1F * level * currentCooldown); // Heal amount of damage contributed by enchantment exactly
+            target.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, 1.0F, 1.0F);
+            damageFlag = false;
+        }
+        super.onTargetDamaged(user, target, level);
+    }
+
+    public static float contributeDamage(int level) {
+        if (Utility.percentChance(25 * level)) {
+            damageFlag = true;
+            return 0.1F * level;
+        }
+        return 0F;
+    }
+
+
+    public void targetDamageAlt(LivingEntity user, Entity target, int level) {
+        if (target instanceof LivingEntity le) {
+
+            // By setting your base value, you can directly affect the amount by multiplying
+            // it by your level rather than having to make sure that you've done the maths
+            // correctly, manually, each time
+            int transposeChanceBase = 20;
+            // Similar to the previous variable, by setting your base value, you can directly
+            // affect the amount by multiplying it by your level rather than having to make
+            // sure that you've done the maths correctly, manually, each time
+            float transposeHeathBase = 0.1F;
+
+            if (Utility.percentChance(transposeChanceBase * level)) {
+                // Manipulate lastDamageTaken and timeUntilRegen to avoid I-frames
+                float lastDam = ((LivingEntityAccessor) le).getLastDamageTaken();
+                target.timeUntilRegen = 0;
+                if (target.damage(le.getRecentDamageSource(), transposeHeathBase * level))
+                    user.heal(transposeHeathBase * level);
+                target.timeUntilRegen = 20;
+                ((LivingEntityAccessor) le).setLastDamageTaken(lastDam);
+                target.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, 1.0F, 1.0F);
+                super.onTargetDamaged(user, target, level);
             }
         }
-        target.playSound(SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, 1.0F, 1.0F);
-        super.onTargetDamaged(user, target, level);
     }
 }
