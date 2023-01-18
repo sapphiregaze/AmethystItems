@@ -16,16 +16,18 @@ public abstract class PlayerEntityMixin {
 
     @ModifyVariable(method = "attack", at = @At(value = "STORE", ordinal = 1), ordinal = 0)
     private float addTransposeDamage(float value) {
-        PlayerEntity pe = (PlayerEntity) (Object) this;
-        if (pe instanceof ServerPlayerEntity) {
+        PlayerEntity playerEntity = (PlayerEntity) (Object) this;
+        if (playerEntity instanceof ServerPlayerEntity) {
+
             int transposeChanceBase = 20;
-            float transposeHeathBase = 1F;
-            int level = EnchantmentHelper.getLevel(EnchantInit.TRANSPOSE, pe.getMainHandStack());
+            float transposeHeathBase = 0.1F;
+            int level = EnchantmentHelper.getLevel(EnchantInit.TRANSPOSE, playerEntity.getMainHandStack());
             if (level > 0 && Utility.percentChance(transposeChanceBase * level)) {
                 value += transposeHeathBase * level;
-                pe.heal(transposeHeathBase * level * pe.getAttackCooldownProgress(0.5f));
-                pe.world.playSound(null,
-                        pe.getX(), pe.getY(), pe.getZ(),
+                playerEntity.heal(transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5f));
+                System.out.println("You've been healed " + transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5f));
+                playerEntity.world.playSound(null,
+                        playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                         SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, SoundCategory.PLAYERS,
                         1.0F, 1.0F);
             }

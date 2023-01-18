@@ -7,7 +7,7 @@ _**A Minecraft 1.19 Fabric Mod that adds Amethyst Items and related Enchantments
 **The MIT License (MIT)**\
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> Copyright (c) 2023 **sapphiregaze**, **frog**\
+> Copyright (c) [2023] **sapphiregaze**, **frog**\
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
