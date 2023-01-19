@@ -5,11 +5,12 @@
   "name": "AmethystItems",
   "description": "a fabric minecraft mod that adds amethyst items into the game",
   "authors": [
-    "sapphiregaze"
+    "sapphiregaze",
+    "frog"
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/amethystitems/icon.png",
+  "icon": "assets/amethyst_items/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [

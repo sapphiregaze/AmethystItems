@@ -13,15 +13,15 @@ import sapphiregaze.amethystitems.util.Utility;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
-
     @ModifyVariable(method = "attack", at = @At(value = "STORE", ordinal = 1), ordinal = 0)
     private float addTransposeDamage(float value) {
         PlayerEntity playerEntity = (PlayerEntity) (Object) this;
-        if (playerEntity instanceof ServerPlayerEntity) {
 
+        if (playerEntity instanceof ServerPlayerEntity) {
             int transposeChanceBase = 20;
             float transposeHeathBase = 0.1F;
             int level = EnchantmentHelper.getLevel(EnchantInit.TRANSPOSE, playerEntity.getMainHandStack());
+
             if (level > 0 && Utility.percentChance(transposeChanceBase * level)) {
                 value += transposeHeathBase * level;
                 playerEntity.heal(transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5f));
