@@ -9,12 +9,11 @@ import sapphiregaze.amethystitems.materials.AmethystArmorMaterial;
 import sapphiregaze.amethystitems.materials.AmethystToolMaterial;
 
 public class ItemsInit {
-
-    public static final Item AMETHYST_SWORD = new SwordItem(AmethystToolMaterial.AMETHYST,5,-2.4F, new Item.Settings().group(ItemGroup.COMBAT));
-    public static final Item AMETHYST_PICKAXE = new PickaxeItem(AmethystToolMaterial.AMETHYST, 1, -2.8f, new Item.Settings().group(ItemGroup.TOOLS));
-    public static final Item AMETHYST_AXE = new AxeItem(AmethystToolMaterial.AMETHYST, 5.0f, -3.0f, new Item.Settings().group(ItemGroup.TOOLS));
-    public static final Item AMETHYST_SHOVEL = new ShovelItem(AmethystToolMaterial.AMETHYST, 1.5f, -3.0f, new Item.Settings().group(ItemGroup.TOOLS));
-    public static final Item AMETHYST_HOE = new AmethystHoe(AmethystToolMaterial.AMETHYST, 0, 0.0F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_SWORD = new SwordItem(AmethystToolMaterial.AMETHYST,3,-2.4F, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item AMETHYST_PICKAXE = new PickaxeItem(AmethystToolMaterial.AMETHYST, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_AXE = new AxeItem(AmethystToolMaterial.AMETHYST, 6, -3.1F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_SHOVEL = new ShovelItem(AmethystToolMaterial.AMETHYST, 1.5F, -3.0F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_HOE = new AmethystHoe(AmethystToolMaterial.AMETHYST, -2, -1.0F, new Item.Settings().group(ItemGroup.TOOLS));
 
     public static final Item AMETHYST_HELMET = new ArmorItem(AmethystArmorMaterial.AMETHYST, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
     public static final Item AMETHYST_CHESTPLATE = new ArmorItem(AmethystArmorMaterial.AMETHYST, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));

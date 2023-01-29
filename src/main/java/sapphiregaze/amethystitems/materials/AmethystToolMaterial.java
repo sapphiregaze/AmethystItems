@@ -10,7 +10,7 @@ import net.minecraft.recipe.Ingredient;
 import java.util.function.Supplier;
 
 public enum AmethystToolMaterial implements ToolMaterial {
-    AMETHYST(MiningLevels.IRON, 2591, 8.0f, 0.0f, 12, Items.AMETHYST_SHARD);
+    AMETHYST(2, 1092, 6.0F, 2.0F, 12, Items.AMETHYST_SHARD);
 
     private final int miningLevel;
     private final int itemDurability;
@@ -27,6 +27,7 @@ public enum AmethystToolMaterial implements ToolMaterial {
         this.enchantability = enchantability;
         this.repairIngredient = Suppliers.memoize(() -> Ingredient.ofItems(item));
     }
+
     @Override
     public int getDurability() {
         return this.itemDurability;

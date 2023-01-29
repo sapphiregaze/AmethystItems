@@ -24,8 +24,8 @@ public abstract class PlayerEntityMixin {
 
             if (level > 0 && Utility.percentChance(transposeChanceBase * level)) {
                 value += transposeHeathBase * level;
-                playerEntity.heal(transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5f));
-                System.out.println("You've been healed " + transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5f));
+                playerEntity.heal(transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5F));
+                System.out.println("You've been healed " + transposeHeathBase * level * playerEntity.getAttackCooldownProgress(0.5F));
                 playerEntity.world.playSound(null,
                         playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                         SoundEvents.BLOCK_AMETHYST_CLUSTER_HIT, SoundCategory.PLAYERS,

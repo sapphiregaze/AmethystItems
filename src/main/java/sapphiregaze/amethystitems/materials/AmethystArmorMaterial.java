@@ -12,22 +12,23 @@ import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 
 public enum AmethystArmorMaterial implements ArmorMaterial {
-    AMETHYST("amethyst", 35, new int[]{3, 5, 7, 3}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.5f, 0.1f, Items.AMETHYST_SHARD);
+    AMETHYST("amethyst", 30, new int[]{3, 5, 7, 3}, new int[]{13, 15, 16, 11}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.5F, 0.1F, Items.AMETHYST_SHARD);
 
-    private static final int[] BASE_DURABILITY;
     private final String name;
     private final int durabilityMultiplier;
     private final int[] protectionAmounts;
+    private final int[] baseDurability;
     private final int enchantability;
     private final SoundEvent equipSound;
     private final float toughness;
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredientSupplier;
 
-    AmethystArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Item item) {
+    AmethystArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int[] baseDurability, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Item item) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
+        this.baseDurability = baseDurability;
         this.enchantability = enchantability;
         this.equipSound = equipSound;
         this.toughness = toughness;
@@ -37,7 +38,7 @@ public enum AmethystArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
+        return this.baseDurability[slot.getEntitySlotId()] * this.durabilityMultiplier;
     }
 
     @Override
@@ -73,9 +74,5 @@ public enum AmethystArmorMaterial implements ArmorMaterial {
     @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
-    }
-
-    static {
-        BASE_DURABILITY = new int[]{15, 18, 19, 14};
     }
 }
