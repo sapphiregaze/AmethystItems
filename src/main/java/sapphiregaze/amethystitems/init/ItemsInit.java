@@ -9,24 +9,19 @@ import sapphiregaze.amethystitems.materials.AmethystArmorMaterial;
 import sapphiregaze.amethystitems.materials.AmethystToolMaterial;
 
 public class ItemsInit {
-    public static final AmethystToolMaterial AMETHYST = new AmethystToolMaterial();
-    public static final AmethystArmorMaterial AMETHYST_ARMOR = new AmethystArmorMaterial();
 
-    private static final Item.Settings COMBAT_SETTINGS = new Item.Settings().group(ItemGroup.COMBAT);
-    private static final Item.Settings TOOL_SETTINGS = new Item.Settings().group(ItemGroup.TOOLS);
+    public static final Item AMETHYST_SWORD = new SwordItem(AmethystToolMaterial.AMETHYST,5,-2.4F, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item AMETHYST_PICKAXE = new PickaxeItem(AmethystToolMaterial.AMETHYST, 1, -2.8f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_AXE = new AxeItem(AmethystToolMaterial.AMETHYST, 5.0f, -3.0f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_SHOVEL = new ShovelItem(AmethystToolMaterial.AMETHYST, 1.5f, -3.0f, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item AMETHYST_HOE = new AmethystHoe(AmethystToolMaterial.AMETHYST, 0, 0.0F, new Item.Settings().group(ItemGroup.TOOLS));
 
-    public static final Item AMETHYST_SWORD = new SwordItem(AMETHYST,5,-2.4F, COMBAT_SETTINGS);
-    public static final Item AMETHYST_PICKAXE = new PickaxeItem(AMETHYST, 1, -2.8f, TOOL_SETTINGS);
-    public static final Item AMETHYST_AXE = new AxeItem(AMETHYST, 5.0f, -3.0f, TOOL_SETTINGS);
-    public static final Item AMETHYST_SHOVEL = new ShovelItem(AMETHYST, 1.5f, -3.0f, TOOL_SETTINGS);
-    public static final Item AMETHYST_HOE = new AmethystHoe(AMETHYST, 0, 0.0F, TOOL_SETTINGS);
+    public static final Item AMETHYST_HELMET = new ArmorItem(AmethystArmorMaterial.AMETHYST, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item AMETHYST_CHESTPLATE = new ArmorItem(AmethystArmorMaterial.AMETHYST, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item AMETHYST_LEGGINGS = new ArmorItem(AmethystArmorMaterial.AMETHYST, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item AMETHYST_BOOTS = new ArmorItem(AmethystArmorMaterial.AMETHYST, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
 
-    public static final Item AMETHYST_HELMET = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.HEAD, COMBAT_SETTINGS);
-    public static final Item AMETHYST_CHESTPLATE = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.CHEST, COMBAT_SETTINGS);
-    public static final Item AMETHYST_LEGGINGS = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.LEGS, COMBAT_SETTINGS);
-    public static final Item AMETHYST_BOOTS = new ArmorItem(AMETHYST_ARMOR, EquipmentSlot.FEET, COMBAT_SETTINGS);
-
-    public static final Item AMETHYST_HORSE_ARMOR = new HorseArmorItem(13, "amethyst", (new Item.Settings().maxCount(1).group(ItemGroup.MISC)));
+    public static final Item AMETHYST_HORSE_ARMOR = new HorseArmorItem(13, "amethyst", new Item.Settings().maxCount(1).group(ItemGroup.MISC));
 
     public static void init() {
         registerItem("amethyst_sword", AMETHYST_SWORD);
