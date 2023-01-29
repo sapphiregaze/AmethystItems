@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.util.registry.Registry;
 import sapphiregaze.amethystitems.Amethystitems;
-import sapphiregaze.amethystitems.init.ItemsInit;
+import sapphiregaze.amethystitems.materials.AmethystToolMaterial;
 
 public class TransposeEnchantment extends Enchantment {
     public TransposeEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
@@ -23,7 +23,7 @@ public class TransposeEnchantment extends Enchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return super.isAcceptableItem(stack) && ((SwordItem) stack.getItem()).getMaterial() == ItemsInit.AMETHYST;
+        return super.isAcceptableItem(stack) && ((SwordItem) stack.getItem()).getMaterial() == AmethystToolMaterial.AMETHYST;
     }
 
     @Override
