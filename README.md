@@ -3,6 +3,9 @@ _**A Minecraft 1.19 Fabric Mod that adds Amethyst Items and related Enchantments
 
 ![2023-01-16_00 53 48](https://user-images.githubusercontent.com/112359914/212637552-a0f5ccdd-a8ab-41aa-86a5-62be6e5d5295.png)
 
+## Links
+> **CurseForge:** https://www.curseforge.com/minecraft/mc-mods/amethystitems
+
 ## LICENSE
 **The MIT License (MIT)**\
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
